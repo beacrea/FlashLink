@@ -1,24 +1,17 @@
-// Colors
-$color-brand-blue-dk: #0071B4;
+// Based on DoCSSa
+// Sass based CSS architecture and methodology
+// http://docssa.info/
 
-// Loading Animation
-.loader {
-  width: 9em;
-  height: 12em;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  display: block;
-  text-align: center;
-  font-style: italic;
-  color: $color-brand-blue-dk;
-  &:after {
-	content: 'loading..';
-  }
-  img {
-	width: 100%;
-  }
-}
+@charset "UTF-8";
+
+/*!
+========== Brand Colors
+*/
+// declarations specific to the project, organized according to the items/sections represented
+@import 'brand/_colors';
+
+/*!
+========== SPECIFICS
+*/
+// declarations specific to the project, organized according to the items/sections represented
+@import 'specifics/_specifics';

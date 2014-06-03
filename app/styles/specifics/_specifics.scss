@@ -1,0 +1,21 @@
+// Loading Animation
+.loader {
+  width: 9em;
+  height: 12em;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: block;
+  text-align: center;
+  font-style: italic;
+  color: $color-brand-blue-lt;
+  &:after {
+	content: 'loading..';
+  }
+  img {
+	width: 100%;
+  }
+}

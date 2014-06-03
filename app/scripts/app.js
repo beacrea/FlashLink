@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('linkedupApp', [
+angular.module('flashlinkApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',

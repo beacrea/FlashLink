@@ -9,7 +9,7 @@ angular.module('flashlinkApp', [
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/testAPI.html',
         controller: 'MainCtrl'
       })
       .otherwise({

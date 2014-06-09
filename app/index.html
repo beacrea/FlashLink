@@ -90,8 +90,9 @@
 
 		    var members = connections.values;
 		    for (var member in members) {
+			    // This should advance the count, rather than showing an undefined placeholder for the prod version.
 			    if (members[member].pictureUrl === undefined) {
-				    members[member].pictureUrl = 'http://img2.wikia.nocookie.net/__cb20131220014546/degrassi/images/c/c8/Smiley-face-text.jpg';
+				    members[member].pictureUrl = '/images/smiley.jpg';
 			    }
 			    profileDiv.innerHTML += "<p><img src='" + members[member].pictureUrl + "' width='32px' height='32px'> " + members[member].firstName + " " + members[member].lastName
 					    + " works in the " + members[member].industry + " industry.</p>";

@@ -75,15 +75,29 @@
 
 	    // 2. Runs when the viewer has authenticated
 	    function onLinkedInAuth() {
-		    IN.API.Profile("me").result(displayProfiles);
+		    IN.API.Connections("me")
+				    .fields("firstName", "lastName", "pictureUrl", "industry")
+				    .params({"start": 1, "count": 50}) // start begins at 0
+				    .result(setConnections);
 	    }
 
-	    // 2. Runs when the Profile() API call returns successfully
-	    function displayProfiles(profiles) {
-		    member = profiles.values[0];
-		    document.getElementById("profiles").innerHTML =
-				    "<p id=\"" + member.id + "\"><img src='" + member.pictureUrl + "' width='32px' height='32px'> Hello " +  member.firstName + " " + member.lastName + "</p>";
+	    function setConnections(connections) {
+		    var profileDiv = document.getElementById("connections");
+
+		    var start = connections._start + 0; // because humans count from 1, not 0.
+		    var range = connections._start + connections._count;
+		    profileDiv.innerHTML = "<p>Displaying " + start + "-" + range + " of " + connections._total + " connections.</p>";
+
+		    var members = connections.values;
+		    for (var member in members) {
+			    if (members[member].pictureUrl === undefined) {
+				    members[member].pictureUrl = 'http://img2.wikia.nocookie.net/__cb20131220014546/degrassi/images/c/c8/Smiley-face-text.jpg';
+			    }
+			    profileDiv.innerHTML += "<p><img src='" + members[member].pictureUrl + "' width='32px' height='32px'> " + members[member].firstName + " " + members[member].lastName
+					    + " works in the " + members[member].industry + " industry.</p>";
+		    }
 	    }
+
     </script>
 </body>
 </html>

@@ -193,62 +193,63 @@ module.exports = function (grunt) {
       }
     },
 
-    // Reads HTML for usemin blocks to enable smart builds that automatically
-    // concat, minify and revision files. Creates configurations in memory so
-    // additional tasks can operate on them
-    useminPrepare: {
-      html: '<%= yeoman.app %>/index.html',
-      options: {
-        dest: '<%= yeoman.dist %>'
-      }
-    },
+      // Reads HTML for usemin blocks to enable smart builds that automatically
+      // concat, minify and revision files. Creates configurations in memory so
+      // additional tasks can operate on them
+      useminPrepare: {
+          html: '<%= yeoman.app %>/index.html',
+          options: {
+              dest: '<%= yeoman.dist %>'
+          }
+      },
 
-    // Performs rewrites based on rev and the useminPrepare configuration
-    usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
-      options: {
-        assetsDirs: ['<%= yeoman.dist %>']
-      }
-    },
+      // Performs rewrites based on rev and the useminPrepare configuration
+      // TODO Figure out why css images aren't being referenced after compile.
+      usemin: {
+          html: ['<%= yeoman.dist %>/{,*/}*.html'],
+          css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+          options: {
+              assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images']
+          }
+      },
 
-    // The following *-min tasks produce minified files in the dist folder
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-    htmlmin: {
-      dist: {
-        options: {
-          collapseWhitespace: true,
-          collapseBooleanAttributes: true,
-          removeCommentsFromCDATA: true,
-          removeOptionalTags: true
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'views/{,*/}*.html'],
-          dest: '<%= yeoman.dist %>'
-        }]
-      }
-    },
+      // The following *-min tasks produce minified files in the dist folder
+      imagemin: {
+          dist: {
+              files: [{
+                  expand: true,
+                  cwd: '<%= yeoman.app %>/images',
+                  src: '{,*/}*.{png,jpg,jpeg,gif}',
+                  dest: '<%= yeoman.dist %>/images'
+              }]
+          }
+      },
+      svgmin: {
+          dist: {
+              files: [{
+                  expand: true,
+                  cwd: '<%= yeoman.app %>/images',
+                  src: '{,*/}*.svg',
+                  dest: '<%= yeoman.dist %>/images'
+              }]
+          }
+      },
+      htmlmin: {
+          dist: {
+              options: {
+                  collapseWhitespace: true,
+                  collapseBooleanAttributes: true,
+                  removeCommentsFromCDATA: true,
+                  removeOptionalTags: true
+              },
+              files: [{
+                  expand: true,
+                  cwd: '<%= yeoman.dist %>',
+                  src: ['*.html', 'views/{,*/}*.html'],
+                  dest: '<%= yeoman.dist %>'
+              }]
+          }
+      },
 
     // Allow the use of non-minsafe AngularJS files. Automatically makes it
     // minsafe compatible so Uglify does not destroy the ng references

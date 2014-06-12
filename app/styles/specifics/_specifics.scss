@@ -19,3 +19,12 @@
 	width: 100%;
   }
 }
+
+// Test Renders
+.wrapper-member {
+  .profilePic {
+	max-width: 2em;
+	margin-right: 0.5em;
+  }
+  .industry { display: none; }
+}

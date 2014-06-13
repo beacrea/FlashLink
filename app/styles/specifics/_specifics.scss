@@ -166,9 +166,20 @@ body {
  ========================================================================== */
 
 
+
 .member {
+  padding: 0.5em;
+  font-size: 2em;
+  span { color: #999; }
+  &[card] { opacity: 0; }
+  &:hover {
+	background: #ddd !important;
+	cursor: pointer;
+  }
   .member_profilePic {
-	max-width: 2em;
+	border: 1px solid #ccc;
+	width: 2em;
+	height: 2em;
 	margin-right: 0.5em;
   }
 }

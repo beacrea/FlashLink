@@ -131,11 +131,7 @@ var cleanConnections = [];
 
 function setConnections(connections) {
     var profileDiv = $("#connections");
-    var start = connections._start;
-    var range = connections._start + connections._count;
     var members = connections.values;
-
-    profileDiv.html("<p>Picking 15 users from a range of " + start + "-" + range + " of " + connections._total + " connections.</p>");
 
     for (var member in members) {
         var member_firstName = members[member].firstName;
@@ -158,12 +154,28 @@ function setConnections(connections) {
     // Renders the first 15 users from the clean pool of connections
     for (var i=0; i < 15; i++) {
         profileDiv.append(
-                "<p class='member'>" +
+                "<p class='member' card='" + i + "'>" +
                 "<img class='member_profilePic' src='" + cleanConnections[i].photo + "'>" +
                 "<span class='member_firstName'>" + cleanConnections[i].firstName + "</span> " +
                 "<span class='member_lastName'>" + cleanConnections[i].lastName+ "</span> " +
                 "</p>");
     }
+    animateConnections();
+}
+
+function animateConnections() {
+    $(document).ready(function() {
+        $("[card]").each(function (i) {
+            // store the item around for use in the 'timeout' function
+            var $item = $(this);
+            // execute this function sometime later:
+            setTimeout(function() {
+                $item.animate({"opacity": 100}, 10000);
+                $item.css({"background": "#eee"}, 10000);
+            }, 100*i);
+            // each element should animate half a second after the last one.
+        });
+    });
 }
 
 

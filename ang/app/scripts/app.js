@@ -20,7 +20,7 @@ angular.module('flashlinkApp', [
   'ngSanitize',
   'ngRoute'
 ])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/testApi.html',
@@ -37,8 +37,6 @@ angular.module('flashlinkApp', [
       .otherwise({
         redirectTo: '/'
       });
-
-    $locationProvider.html5Mode(true);
   });
 
 

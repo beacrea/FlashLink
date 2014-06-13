@@ -70,10 +70,9 @@ function onLinkedInLoad() {
 // Runs when the viewer has authenticated
 function onLinkedInAuth() {
     IN.API.Connections("me")
-        // Initial Load for Total Connection Info
+        // Quick call to get back total connection count
         .params({"start": 0, "count": 1})
         .result(randomizeRange);
-    console.log('Getting total connections...');
 }
 
 /* --------------------------------------------------------------------------
@@ -81,16 +80,15 @@ function onLinkedInAuth() {
  -------------------------------------------------------------------------- */
 
 function randomizeRange(connections) {
-    // Processes If User Has More Than 100 Connections
-    if (connections._total > 100) {
-        console.log('User successfully has over 100 connections.');
-        var randomMax = Math.floor((Math.random() * connections._total) + 100);
-        console.log('Choosing random range of 100...');
-        console.log('The range chosen was ' + (randomMax - 100) + ' - ' + randomMax + '.');
+    // Processes if user has more than 50 connections
+    if (connections._total > 50) {
+        // Selects random range of 50 connections
+        var randomMax = Math.floor((Math.random() * connections._total) + 50);
+        // Get connection data
         getConnectionData(randomMax);
-        console.log('Fetching the chosen range of connections...');
+    } else {
+        console.log('User has less than 50 connections. Aborting');
     }
-    console.log('User does not have more than 100. Aborted.');
 }
 
 /* --------------------------------------------------------------------------
@@ -98,13 +96,12 @@ function randomizeRange(connections) {
  -------------------------------------------------------------------------- */
 
 function getConnectionData(total) {
-    var start = total - 100;
+    var start = total - 50;
     IN.API.Connections("me")
         .fields("firstName", "lastName", "pictureUrl", "industry")
-        .params({"start": start, "count": 100})
+        .params({"start": start, "count": 50})
+        // Sends connections for cleaning and rendering
         .result(setConnections);
-    console.log('Successfully retrieved connection info.');
-    console.log('Dumping users with invalid characters...');
 }
 
 
@@ -130,15 +127,15 @@ function checkValidName(name) {
  Display Connections
  -------------------------------------------------------------------------- */
 
+var cleanConnections = [];
+
 function setConnections(connections) {
     var profileDiv = $("#connections");
     var start = connections._start;
     var range = connections._start + connections._count;
     var members = connections.values;
 
-    console.log('Rendering remaining users...');
-
-    profileDiv.html("<p>Displaying " + start + "-" + range + " of " + connections._total + " connections.</p>");
+    profileDiv.html("<p>Picking 15 users from a range of " + start + "-" + range + " of " + connections._total + " connections.</p>");
 
     for (var member in members) {
         var member_firstName = members[member].firstName;
@@ -146,17 +143,26 @@ function setConnections(connections) {
         var member_avatar = members[member].pictureUrl;
         var member_industry = members[member].industry;
 
-        // Only Prints Clean Users
+        // Dumps users with illegal characters and puts them in an object
         if (checkValidName(member_firstName) === true && checkValidName(member_lastName) && member_avatar !== undefined) {
-            profileDiv.append(
-                "<p class='member'>" +
-                "<img class='member_profilePic' src='" + member_avatar + "'>" +
-                "<span class='member_firstName'>" + member_firstName + "</span> " +
-                "<span class='member_lastName'>" + member_lastName+ "</span> " +
-                //"<span class='member_industry'>works in the " + member_industry + " industry.</span>" +
-                "</p>");
+            cleanConnections.push({
+                photo: member_avatar,
+                firstName: member_firstName,
+                lastName: member_lastName,
+                fullName: member_firstName + ' ' + member_lastName,
+                industry: member_industry
+            });
         }
+    }
 
+    // Renders the first 15 users from the clean pool of connections
+    for (var i=0; i < 15; i++) {
+        profileDiv.append(
+                "<p class='member'>" +
+                "<img class='member_profilePic' src='" + cleanConnections[i].photo + "'>" +
+                "<span class='member_firstName'>" + cleanConnections[i].firstName + "</span> " +
+                "<span class='member_lastName'>" + cleanConnections[i].lastName+ "</span> " +
+                "</p>");
     }
 }
 

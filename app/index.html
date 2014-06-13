@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>flashlink</title>
+        <title>FlashLink | The LinkedIn Memory Game</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -26,7 +26,7 @@
         <![endif]-->
 
 
-        <div class="container"></div>
+        <div class="appContainer"></div>
 
 
         <!-- build:js scripts/vendor.js -->
@@ -42,10 +42,11 @@
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
+            ga('create','UA-51685248-1');ga('send','pageview');
         </script>
 
         <!-- build:js scripts/main.js -->
+        <script src="scripts/controller.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 
@@ -63,5 +64,11 @@
         <script src="bower_components/sass-bootstrap/js/collapse.js"></script>
         <script src="bower_components/sass-bootstrap/js/tab.js"></script>
         <!-- endbuild -->
+
+        <script type="text/javascript" src="http://platform.linkedin.com/in.js">
+	        api_key: 75v3r7ozf5al1c
+	        onLoad: onLinkedInLoad
+	        authorize: true
+        </script>
 </body>
 </html>

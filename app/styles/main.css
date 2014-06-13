@@ -2,4 +2,4 @@
 ========== Brand Colors
 *//*!
 ========== SPECIFICS
-*/.loader{width:9em;height:12em;position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;display:block;text-align:center;font-style:italic;color:#5ea9d0}.loader:after{content:'loading..'}.loader img{width:100%}.wrapper-member .profilePic{max-width:2em;margin-right:0.5em}.wrapper-member .industry{display:none}
+*/@import url(http://fonts.googleapis.com/css?family=Roboto);html,body{height:100%;width:100%}body{min-width:300px;color:#333;font-family:Arial,Helvetica,sans-serif;font-weight:300;font-size:16px}.loader{width:9em;height:12em;position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;display:block;text-align:center;font-style:italic;color:#5ea9d0}.loader:after{content:'loading..'}.loader img{width:100%}.member .member_profilePic{max-width:2em;margin-right:0.5em}.member .member_industry{display:none}

@@ -129,6 +129,7 @@ body {
 
 
 .loader {
+  display: block;
   width: 9em;
   height: 12em;
   position: absolute;
@@ -137,7 +138,6 @@ body {
   left: 0;
   right: 0;
   margin: auto;
-  display: block;
   text-align: center;
   font-style: italic;
   color: $color-brand-blue-lt;
@@ -170,6 +170,7 @@ body {
 .member {
   padding: 0.5em;
   font-size: 2em;
+  line-height: 150%;
   span { color: #999; }
   &[card] { opacity: 0; }
   &:hover {
@@ -178,10 +179,21 @@ body {
   }
   .member_profilePic {
 	border: 1px solid #ccc;
-	width: 2em;
-	height: 2em;
+	width: 3em;
 	margin-right: 0.5em;
   }
+}
+
+@media (max-width: em(768)) {
+	.member {
+	  padding: 0.75em 0.5em 0.5em;
+	  font-size: 1.25em;
+	  .member_profilePic {
+		width: 2.25em;
+		margin-right: 0.25em;
+		margin-bottom: 0.25em;
+	  }
+	}
 }
 
 

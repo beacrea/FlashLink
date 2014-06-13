@@ -122,6 +122,7 @@ function setConnections(connections) {
 
 function animateConnections() {
     $(document).ready(function() {
+        $('.loader').fadeOut();
         $("[card]").each(function (i) {
             // store the item around for use in the 'timeout' function
             var $item = $(this);

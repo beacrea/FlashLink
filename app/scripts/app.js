@@ -6,11 +6,6 @@
  *
  */
 
-
-
-
-
-
 'use strict';
 
 /* ==========================================================================
@@ -25,15 +20,25 @@ angular.module('flashlinkApp', [
   'ngSanitize',
   'ngRoute'
 ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/testAPI.html',
+        templateUrl: 'views/testApi.html',
         controller: 'MainCtrl'
       })
+      .when('/load', {
+        templateUrl: 'views/loading.html',
+        controller: 'MainCtrl'
+      })
+     .when('/test', {
+        templateUrl: 'views/testApi.html',
+        controller: 'MainCtrl'
+     })
       .otherwise({
         redirectTo: '/'
       });
+
+    $locationProvider.html5Mode(true);
   });
 
 
@@ -95,25 +100,26 @@ function checkValidName(name) {
 
 function setConnections(connections) {
     var profileDiv = $("#connections");
-
     var start = connections._start;
     var range = connections._start + connections._count;
+    var members = connections.values;
+
     profileDiv.html("<p>Displaying " + start + "-" + range + " of " + connections._total + " connections.</p>");
 
-    var members = connections.values;
     for (var member in members) {
-        var firstName = members[member].firstName;
-        var lastName = members[member].lastName;
-        var avatar = members[member].pictureUrl;
+        var member_firstName = members[member].firstName;
+        var member_lastName = members[member].lastName;
+        var member_avatar = members[member].pictureUrl;
+        var member_industry = members[member].industry;
 
         // Only Prints Clean Users
-        if (checkValidName(firstName) === true && checkValidName(lastName) && avatar !== undefined) {
+        if (checkValidName(member_firstName) === true && checkValidName(member_lastName) && member_avatar !== undefined) {
             profileDiv.append(
                 "<p class='member'>" +
-                "<img class='member_profilePic' src='" + members[member].pictureUrl + "'>" +
-                "<span class='member_firstName'>" + members[member].firstName + "</span> " +
-                "<span class='member_lastName'>" + members[member].lastName+ "</span> " +
-                "<span class='member_industry'>works in the " + members[member].industry + " industry.</span>" +
+                "<img class='member_profilePic' src='" + member_avatar + "'>" +
+                "<span class='member_firstName'>" + member_firstName + "</span> " +
+                "<span class='member_lastName'>" + member_lastName+ "</span> " +
+                //"<span class='member_industry'>works in the " + member_industry + " industry.</span>" +
                 "</p>");
         }
 

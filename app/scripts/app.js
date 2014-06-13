@@ -67,11 +67,40 @@ function onLinkedInLoad() {
     IN.Event.on(IN, "auth", onLinkedInAuth);
 }
 
-// 2. Runs when the viewer has authenticated
+// Runs when the viewer has authenticated
 function onLinkedInAuth() {
     IN.API.Connections("me")
+        .params({"start": 0, "count": 100})
+        .result(testFunc);
+}
+
+/* --------------------------------------------------------------------------
+ Calculate Total Connections
+ -------------------------------------------------------------------------- */
+
+function testFunc(connections) {
+    randomizeRange(connections._total);
+}
+
+/* --------------------------------------------------------------------------
+ Connection Range Randomizer
+ -------------------------------------------------------------------------- */
+
+function randomizeRange(total) {
+    if (total > 100) {
+        getConnectionData(Math.floor((Math.random() * total) + 100));
+    }
+}
+
+/* --------------------------------------------------------------------------
+ Get Connection Data
+ -------------------------------------------------------------------------- */
+
+function getConnectionData(total) {
+    var start = total - 100;
+    IN.API.Connections("me")
         .fields("firstName", "lastName", "pictureUrl", "industry")
-        .params({"start": 0, "count": 50}) // start begins at 0
+        .params({"start": start, "count": 100})
         .result(setConnections);
 }
 
@@ -81,7 +110,7 @@ function onLinkedInAuth() {
  -------------------------------------------------------------------------- */
 
 function checkValidName(name) {
-    var invalidChars = ['(', ')', ',', 'private', 'Private', '@', '.com'];
+    var invalidChars = ['(', ')', ',', 'private', 'Private', '@', '.'];
     for (var i=0; i < invalidChars.length; i++) {
 
         // Checks if any invalid characters are found

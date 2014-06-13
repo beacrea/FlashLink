@@ -122,15 +122,16 @@ function setConnections(connections) {
 
 function animateConnections() {
     $(document).ready(function() {
-        $('.loader').fadeOut();
+        $('.loader').fadeOut(100);
+        $('.appContainer').css("background", "#8FC6E1");
         $("[card]").each(function (i) {
             // store the item around for use in the 'timeout' function
             var $item = $(this);
             // execute this function sometime later:
             setTimeout(function() {
                 $item.animate({"opacity": 100}, 10000);
-                $item.css({"background": "#eee"}, 10000);
-            }, 100*i);
+                $item.css({"background": "rgba(240,240,240,0.9)"}, 10000);
+            }, 250*i);
             // each element should animate half a second after the last one.
         });
     });

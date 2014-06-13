@@ -49,6 +49,9 @@ $color-siteBK: #fafafa;
 $color-primary-light: #fafafa;
 $color-primary-dark: #333;
 
+$color-brand-blue-lt: #8FC6E1;
+$color-brand-blue-dk: #0071B4;
+
 
 /* --------------------------------------------------------------------------
  Font Variables
@@ -109,7 +112,9 @@ body {
   font-weight: 300;
   font-size: $font_size_base;
 }
-.container-main { padding: 1em 0 2em; }
+.appContainer {
+  transition: background 0.5s ease;
+}
 
 
 
@@ -168,14 +173,21 @@ body {
 
 
 .member {
+  transition: all 0.5s ease;
   padding: 0.5em;
   font-size: 2em;
   line-height: 150%;
-  span { color: #999; }
+  color: #888;
   &[card] { opacity: 0; }
   &:hover {
-	background: #ddd !important;
+	background: #fff !important;
+	letter-spacing: 0.05em;
+	color: #333 !important;
 	cursor: pointer;
+	box-shadow: 0 0 10px $color-brand-blue-dk;
+	margin-left: 0.5em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
   }
   .member_profilePic {
 	border: 1px solid #ccc;

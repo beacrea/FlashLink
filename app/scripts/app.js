@@ -70,26 +70,27 @@ function onLinkedInLoad() {
 // Runs when the viewer has authenticated
 function onLinkedInAuth() {
     IN.API.Connections("me")
-        .params({"start": 0, "count": 100})
-        .result(testFunc);
+        // Initial Load for Total Connection Info
+        .params({"start": 0, "count": 1})
+        .result(randomizeRange);
+    console.log('Getting total connections...');
 }
 
 /* --------------------------------------------------------------------------
- Calculate Total Connections
+ Calculate Total Connections, Randomize
  -------------------------------------------------------------------------- */
 
-function testFunc(connections) {
-    randomizeRange(connections._total);
-}
-
-/* --------------------------------------------------------------------------
- Connection Range Randomizer
- -------------------------------------------------------------------------- */
-
-function randomizeRange(total) {
-    if (total > 100) {
-        getConnectionData(Math.floor((Math.random() * total) + 100));
+function randomizeRange(connections) {
+    // Processes If User Has More Than 100 Connections
+    if (connections._total > 100) {
+        console.log('User successfully has over 100 connections.');
+        var randomMax = Math.floor((Math.random() * connections._total) + 100);
+        console.log('Choosing random range of 100...');
+        console.log('The range chosen was ' + (randomMax - 100) + ' - ' + randomMax + '.');
+        getConnectionData(randomMax);
+        console.log('Fetching the chosen range of connections...');
     }
+    console.log('User does not have more than 100. Aborted.');
 }
 
 /* --------------------------------------------------------------------------
@@ -102,6 +103,8 @@ function getConnectionData(total) {
         .fields("firstName", "lastName", "pictureUrl", "industry")
         .params({"start": start, "count": 100})
         .result(setConnections);
+    console.log('Successfully retrieved connection info.');
+    console.log('Dumping users with invalid characters...');
 }
 
 
@@ -124,7 +127,7 @@ function checkValidName(name) {
 
 
 /* --------------------------------------------------------------------------
- Print Connections
+ Display Connections
  -------------------------------------------------------------------------- */
 
 function setConnections(connections) {
@@ -132,6 +135,8 @@ function setConnections(connections) {
     var start = connections._start;
     var range = connections._start + connections._count;
     var members = connections.values;
+
+    console.log('Rendering remaining users...');
 
     profileDiv.html("<p>Displaying " + start + "-" + range + " of " + connections._total + " connections.</p>");
 

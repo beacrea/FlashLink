@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e31f03f-290f-42cd-b95d-d87b57ce6ea6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/images/touch/apple-touch-icon-114x114-precomposed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/images/touch/apple-touch-icon-144x144-precomposed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/images/touch/apple-touch-icon-57x57-precomposed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/images/touch/apple-touch-icon-72x72-precomposed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/images/touch/apple-touch-icon-precomposed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/images/touch/apple-touch-icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/images/tileChecks.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/images/touch/touch-icon-128x128.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/images/touch/touch-icon-196x196.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/images/touch/touch-icon-60x60.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/images/transPixel.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/gameplay.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/loader.gif" afterPath="$PROJECT_DIR$/app/images/loader.gif" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/specifics/_specifics.scss" afterPath="$PROJECT_DIR$/app/styles/specifics/_specifics.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/app.js" afterPath="$PROJECT_DIR$/app/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controller.js" afterPath="$PROJECT_DIR$/app/scripts/controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/main.css" afterPath="$PROJECT_DIR$/app/styles/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flashlink.iws" />
@@ -86,8 +69,8 @@
       <file leaf-file-name="_specifics.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/styles/specifics/_specifics.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45873016" vertical-offset="3806" max-vertical-offset="4545">
-              <caret line="273" column="25" selection-start-line="273" selection-start-column="25" selection-end-line="273" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.5274949" vertical-offset="3806" max-vertical-offset="4545">
+              <caret line="271" column="13" selection-start-line="271" selection-start-column="13" selection-end-line="271" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -587,7 +570,7 @@
     <layout>
       <window_info id="Grunt" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32844576" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20381232" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20381232" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32844576" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -808,8 +791,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/styles/specifics/_specifics.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45873016" vertical-offset="3806" max-vertical-offset="4545">
-          <caret line="273" column="25" selection-start-line="273" selection-start-column="25" selection-end-line="273" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.5274949" vertical-offset="3806" max-vertical-offset="4545">
+          <caret line="271" column="13" selection-start-line="271" selection-start-column="13" selection-end-line="271" selection-end-column="13" />
           <folding />
         </state>
       </provider>

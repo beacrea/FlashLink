@@ -104,17 +104,17 @@ $browser_context: 16;
  ========================================================================== */
 
 @import url(http://fonts.googleapis.com/css?family=Roboto);
-html, body { height: 100%; width: 100%; }
+html, body { height: 100%; width: 100%; overflow: hidden; }
 body {
   min-width: 300px;
   color: $color-primary-dark;
   font-family: $font_stack-main;
   font-weight: 300;
   font-size: $font_size_base;
+  background: #fff;
+  transition: all 0.5s ease;
 }
-.appContainer {
-  transition: background 0.5s ease;
-}
+.appContainer { height: 100%; }
 
 
 
@@ -134,7 +134,7 @@ body {
 
 
 .loader {
-  display: block;
+  display: none;
   width: 9em;
   height: 12em;
   position: absolute;
@@ -145,7 +145,7 @@ body {
   margin: auto;
   text-align: center;
   font-style: italic;
-  color: $color-brand-blue-lt;
+  color: $color-brand-blue-dk;
   &:after {
 	content: 'loading..';
   }
@@ -175,7 +175,7 @@ body {
 .member {
   transition: all 0.5s ease;
   padding: 0.5em;
-  font-size: 2em;
+  font-size: 1.25em;
   line-height: 150%;
   color: #888;
   &[card] { opacity: 0; }
@@ -206,6 +206,87 @@ body {
 		margin-bottom: 0.25em;
 	  }
 	}
+}
+
+
+
+
+
+
+
+/* - - - - - - - - - - - - - - - - * // * - - - - - - - - - - - - - - - - -  */
+
+
+
+
+
+/* ==========================================================================
+ $_GAME
+
+ These are styles for gameplay.
+ ========================================================================== */
+
+
+.view-game {
+  height: 100%;
+  background: $color-brand-blue-lt;
+  .col {
+	padding: 0 2em;
+	width: 33%;
+	overflow: scroll;
+  }
+  .col-lt, .col-rt {
+	position:absolute;
+	top:0;
+	bottom:0;
+  }
+  .col-lt {
+	left:0;
+	background: $color-brand-blue-lt;
+	border-right: 4px solid darken($color-brand-blue-lt, 10%);
+	.card { border: 0.5em solid #fff; }
+  }
+  .col-cntr {
+	background: $color-brand-blue-lt;
+	position:relative;
+	margin-left:33%;
+	height: 100%;
+	border-left: 2px solid lighten($color-brand-blue-lt, 10%);
+	.card {
+	  padding: 1em;
+	  font-size: 1.5em;
+	  background: url(../images/tileChecks.png) #fff;
+	  border: 0.25em solid #eee;
+	  span { display: block; }
+	}
+  }
+  .col-rt {
+	right:0;
+	background: #fff;
+	border-left: 1em solid #eee;
+	box-shadow: -2px 0px 3px darken($color-brand-blue-lt, 50%);
+  }
+  .card {
+	transition: all 0.5s ease;
+	box-shadow: 2px 2px 3px #666;
+	margin: 1em 0;
+	&:hover {
+	  transform: rotate(5deg);
+	  cursor: pointer;
+	}
+	img {
+	  max-width: 100%;
+	  width: 100%;
+	}
+  }
+}
+
+@media (max-width: em(600)) {
+  .view-game {
+	.col-cntr {
+	  .card { font-size: 1em; }
+	}
+  }
 }
 
 

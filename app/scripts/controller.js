@@ -27,7 +27,7 @@ function changeView() {
 
 // Initial View Load
 function initialView(fadeTime) {
-    appContainer.load('views/main.html', function() {
+    appContainer.load('views/gameplay.html', function() {
         changeView();
     }).fadeIn(fadeTime);
 }

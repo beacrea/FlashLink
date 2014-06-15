@@ -26,7 +26,6 @@ function onLinkedInLoad() {
 
 // Runs when the viewer has authenticated
 function onLinkedInAuth() {
-    $('.loader').fadeIn();
     IN.API.Connections("me")
         // Quick call to get back total connection count
         .params({"start": 0, "count": 1})
@@ -123,7 +122,7 @@ function setConnections(connections) {
 
 function animateConnections() {
     $(document).ready(function() {
-        $('.loader, .loader:after').fadeOut(1000);
+        endSplashAni();
         $('body, html').css("background", "#8FC6E1");
         $("[card]").each(function (i) {
             // store the item around for use in the 'timeout' function
@@ -143,3 +142,28 @@ function animateConnections() {
 
 
 /* - - - - - - - - - - - - - - - - * // * - - - - - - - - - - - - - - - - -  */
+
+
+
+
+
+/* ==========================================================================
+ COMMON APP
+
+ These are interactions that are commonly found in the app.
+ ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+ Initiate Loading Animation
+ -------------------------------------------------------------------------- */
+
+var loader = $('.loader, .loader:after');
+
+function initSplashAni() {
+    loader.fadeIn(1000);
+}
+
+function endSplashAni() {
+    loader.fadeOut(1000);
+}

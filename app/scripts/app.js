@@ -195,7 +195,7 @@ function initLogIn() {
 
 function chooseCard() {
     $('.card').click(function() {
-        $(this).siblings().removeClass('card-chosen').addClass('card-default');
+        $(this).siblings().css("opacity", "0.5").removeClass('card-chosen').addClass('card-default');
         $(this).toggleClass('card-chosen', 'card-default');
     });
 }

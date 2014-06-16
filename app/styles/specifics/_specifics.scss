@@ -371,7 +371,7 @@ body {
 	left:0;
 	background: $color-brand-blue-lt;
 	border-right: 4px solid darken($color-brand-blue-lt, 10%);
-	.card { border: 0.5em solid #fff; }
+	.card { border: 0.25em solid #fff; }
   }
   .col-cntr {
 	background: $color-brand-blue-lt;
@@ -419,6 +419,7 @@ body {
 	}
 	&.card-chosen {
 	  border-color: green;
+	  opacity: 100 !important;
 	}
   }
 }

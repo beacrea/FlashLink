@@ -26,7 +26,7 @@ function onLinkedInLoad() {
 
 // Runs when the viewer has authenticated
 function onLinkedInAuth() {
-    $('.btn_login').hide();
+    $('.btn_login, .wrapper-auth').hide();
     initSplashAni();
     IN.API.Connections("me")
         // Quick call to get back total connection count
@@ -125,6 +125,7 @@ function setConnections(connections) {
 function animateConnections() {
     $(document).ready(function() {
         endSplashAni();
+        $('.view-test').css("background", "none");
         $('body, html').css("background", "#8FC6E1");
         $("[card]").each(function (i) {
             // store the item around for use in the 'timeout' function

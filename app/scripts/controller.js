@@ -50,8 +50,7 @@ function callback_test() {
 // Initial View Load
 function initialView(fadeTime) {
     appContainer.load('views/start.html', function() {
-        initLogIn();
-        changeView();
+        callback_test();
     }).fadeIn(fadeTime);
 }
 initialView(1000);

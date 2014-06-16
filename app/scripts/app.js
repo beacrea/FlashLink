@@ -155,14 +155,22 @@ function animateConnections() {
  These are interactions that are commonly found in the app.
  ========================================================================== */
 
+// Loader Animation
 var loader = $('.loader, .loader:after');
-
 function initSplashAni() {
     loader.show();
 }
-
 function endSplashAni() {
     loader.hide();
+}
+
+// Initialize Linkedin Authorization
+function initLogIn() {
+    $('.btn_login').click(function() {
+        IN.User.authorize(function(){
+            onLinkedInAuth();
+        });
+    });
 }
 
 
@@ -184,11 +192,3 @@ function endSplashAni() {
 /* --------------------------------------------------------------------------
  Gameplay
  -------------------------------------------------------------------------- */
-
-function initLogIn() {
-    $('.btn_login').click(function() {
-        IN.User.authorize(function(){
-            onLinkedInAuth();
-        });
-    });
-}

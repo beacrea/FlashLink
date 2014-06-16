@@ -253,15 +253,29 @@ body {
   padding: 2em 1em;
   border: 1px solid #999;
   border-radius: 10px;
+  p { margin: 0; }
+  b {
+	display: block;
+	padding-top: 1em;
+  }
   header {
-	margin-bottom: 2em;
+	margin-bottom: 1em;
 	img { max-width: 100%; }
   }
+  .btn {
+	transition: all 0.5s ease;
+	width: 100%;
+	padding: 1em;
+	color: #fff;
+	&:hover {
+	  background: green;
+	}
+  }
   .btn_startGame {
+	font-size: 1.5em;
 	text-align: center;
 	border: 2px solid $color-brand-blue-dk;
 	border-radius: 4px;
-	padding: 1em 0 0.75em;
 	background: $color-brand-blue-lt;
   }
   .IN-widget {

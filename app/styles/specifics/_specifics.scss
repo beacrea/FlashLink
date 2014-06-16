@@ -119,6 +119,14 @@ body {
   transition: all 0.5s ease;
 }
 .appContainer { height: 100%; overflow: scroll; }
+.absCenter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
 
 
 
@@ -138,16 +146,11 @@ body {
 
 
 .loader {
+  @extend .absCenter;
   background: transparent;
   display: none;
   width: 9em;
   height: 12em;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
   text-align: center;
   font-style: italic;
   color: $color-brand-blue-dk;
@@ -241,14 +244,9 @@ body {
 }
 
 .wrapper-start {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  @extend .absCenter;
   width: 320px * .9;
   height: 480px * .9;
-  margin: auto;
   background: #fff;
   padding: 2em 1em;
   border: 1px solid #999;

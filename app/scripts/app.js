@@ -192,3 +192,10 @@ function initLogIn() {
 /* --------------------------------------------------------------------------
  Gameplay
  -------------------------------------------------------------------------- */
+
+function chooseCard() {
+    $('.card').click(function() {
+        $(this).siblings().removeClass('card-chosen').addClass('card-default');
+        $(this).toggleClass('card-chosen', 'card-default');
+    });
+}

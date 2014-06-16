@@ -382,8 +382,14 @@ body {
 	.card {
 	  padding: 1em;
 	  font-size: 1.5em;
+	  border: 0.25em solid #ddd;
 	  background: url(../images/tileChecks.png) #fff;
-	  border: 0.25em solid #eee;
+	  &.card-default {
+		boder-color: #eee;
+	  }
+	  &.card-chosen {
+		border-color: green;
+	  }
 	  span { display: block; }
 	}
   }
@@ -395,7 +401,7 @@ body {
   }
   .card {
 	transition: all 0.5s ease;
-	box-shadow: 2px 2px 3px #666;
+	box-shadow: 2px 2px 3px #666;;
 	margin: 2em 0;
 	&:hover {
 	  transform: rotate(5deg);
@@ -404,6 +410,15 @@ body {
 	img {
 	  max-width: 100%;
 	  width: 100%;
+	}
+  }
+  .card {
+	background: #fff;
+	&.card-default {
+	  border-color: #fff;
+	}
+	&.card-chosen {
+	  border-color: green;
 	}
   }
 }

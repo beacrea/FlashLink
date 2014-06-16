@@ -26,6 +26,8 @@ function onLinkedInLoad() {
 
 // Runs when the viewer has authenticated
 function onLinkedInAuth() {
+    $('.btn_login').hide();
+    initSplashAni();
     IN.API.Connections("me")
         // Quick call to get back total connection count
         .params({"start": 0, "count": 1})
@@ -153,17 +155,40 @@ function animateConnections() {
  These are interactions that are commonly found in the app.
  ========================================================================== */
 
-
-/* --------------------------------------------------------------------------
- Initiate Loading Animation
- -------------------------------------------------------------------------- */
-
 var loader = $('.loader, .loader:after');
 
 function initSplashAni() {
-    loader.fadeIn(1000);
+    loader.show();
 }
 
 function endSplashAni() {
-    loader.fadeOut(1000);
+    loader.hide();
+}
+
+
+
+
+
+/* - - - - - - - - - - - - - - - - * // * - - - - - - - - - - - - - - - - -  */
+
+
+
+
+
+/* ==========================================================================
+ VIEW SPECIFICS
+
+ These are functions and interactions for various views.
+ ========================================================================== */
+
+/* --------------------------------------------------------------------------
+ Gameplay
+ -------------------------------------------------------------------------- */
+
+function initLogIn() {
+    $('.btn_login').click(function() {
+        IN.User.authorize(function(){
+            onLinkedInAuth();
+        });
+    });
 }

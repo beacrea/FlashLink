@@ -14,27 +14,43 @@ function changeView() {
     $('.btn').click(function() {
         var target = $(this).attr('rel');
         var view = 'views/' + target + '.html';
-        appContainer.hide().load(view, function() {
-            changeView();
-            // Specific Views
-            if (target === 'gameplay') {
-                appContainer.delay(600).fadeOut(300, function(){
-                    $(this).load('views/gameplay.html', function() {
-                        changeView();
-                    }).fadeIn(300);
-                });
-            } else if (target === 'test') {
-                initSplashAni();
+        // Specific Views
+        if (target === 'gameplay') {
+            appContainer.fadeOut(300, function(){
+                $(this).load('views/gameplay.html', function() {
+                    callback_gameplay();
+                }).fadeIn(300);
+            });
+        } else if (target === 'test') {
+            appContainer.hide(function(){
+                $(this).load('views/test.html', function() {
+                    callback_test();
+                }).fadeIn(300);
+            });
+        } else {
+            appContainer.hide().load(view, function () {
                 changeView();
-            }
-        }).fadeIn(800);
+            }).fadeIn(800);
+        }
     });
+}
+
+
+// View Callbacks
+function callback_gameplay() {
+    initLogIn();
+    changeView();
+}
+
+function callback_test() {
+    initLogIn();
+    changeView();
 }
 
 // Initial View Load
 function initialView(fadeTime) {
-    appContainer.load('views/test.html', function() {
-        initSplashAni();
+    appContainer.load('views/start.html', function() {
+        initLogIn();
         changeView();
     }).fadeIn(fadeTime);
 }

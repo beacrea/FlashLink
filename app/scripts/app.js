@@ -164,7 +164,6 @@ function endSplashAni() {
     loader.hide();
 }
 
-// Initialize Linkedin Authorization
 function initLogIn() {
     $('.btn_login').click(function() {
         IN.User.authorize(function(){

@@ -199,3 +199,11 @@ function chooseCard() {
         $(this).toggleClass('card-chosen', 'card-default');
     });
 }
+
+function compareMatch() {
+    // TODO Finish The Comparison Engine
+    $('.btn-match').click(function() {
+        var col_lt = $('.col-lt .card-chosen');
+        var col_rt = $('.col-cntr .card-chosen');
+    });
+}

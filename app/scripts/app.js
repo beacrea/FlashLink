@@ -119,8 +119,10 @@ function setConnections(connections) {
                 "<img class='member_profilePic' src='" + cleanConnections[i].photo + "'>" +
                 "<span class='member_firstName'>" + cleanConnections[i].firstName + "</span> " +
                 "<span class='member_lastName'>" + cleanConnections[i].lastName+ "</span> " +
-                "</p>");
-                */
+                "</p>"
+                 */
+                );
+
     }
     animateConnections();
 }

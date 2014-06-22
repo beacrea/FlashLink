@@ -1,3 +1,11 @@
+/*
+ *
+ *  FlashLink Controller
+ *  Original Author: Coty Beasley
+ *  Twitter: @beacrea
+ *
+ */
+
 /* ==========================================================================
  $_VIEW CONTROLLER ----------------------------------------------------------
  ========================================================================== */
@@ -42,6 +50,8 @@ function callback_gameplay() {
     changeView();
     chooseCard();
     compareMatch();
+    updateScore();
+    removeCard();
 }
 
 function callback_test() {

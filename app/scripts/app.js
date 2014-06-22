@@ -220,9 +220,12 @@ function compareMatch() {
     $('.btn-match').click(function() {
         var col_lt = $('.col-lt .card-chosen');
         var col_cntr = $('.col-cntr .card-chosen');
-        if (col_lt.attr('id') === col_cntr.attr('id')) {
+        if (col_lt.attr('data-cardID') === col_cntr.attr('data-cardID')) {
             updateScore('correct');
             alert('Match Found!');
+            removeCard(col_lt);
+            removeCard(col_cntr);
+            $('.card').css('opacity', 100);
         } else {
             updateScore('incorrect');
             alert('Not A Match.');
@@ -240,4 +243,11 @@ function updateScore(status) {
         score_incorrect++;
         score_incorrect_el.html(score_incorrect);
     }
+}
+
+function removeCard(el) {
+    // TODO Find out why the animation doesn't work.
+    el.slideUp('slow', function(){
+        el.remove();
+    });
 }

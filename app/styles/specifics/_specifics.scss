@@ -122,7 +122,7 @@ body {
   font-weight: 300;
   font-size: $font_size_base;
   background: #fff;
-  transition: all 0.5s ease;
+  transition: all 0.5s;
 }
 .appContainer { height: 100%; overflow: scroll; }
 .absCenter {
@@ -194,7 +194,7 @@ body {
 
 .member {
   display: block;
-  transition: all 0.5s ease;
+  transition: all 0.5s;
   padding: 0.5em;
   font-size: 1.25em;
   line-height: 150%;
@@ -268,7 +268,7 @@ body {
 	img { max-width: 100%; }
   }
   .btn {
-	transition: all 0.5s ease;
+	transition: all 0.5s;
 	width: 100%;
 	padding: 1em;
 	color: #fff;
@@ -393,7 +393,7 @@ body {
 	  border: 0.25em solid #ddd;
 	  background: url(../images/tileChecks.png) #fff;
 	  &.card-default {
-		boder-color: #eee;
+		border-color: #eee;
 	  }
 	  &.card-chosen {
 		border-color: green;
@@ -465,7 +465,7 @@ body {
 	}
   }
   .card {
-	transition: all 0.5s ease;
+	transition: all 0.5s;
 	box-shadow: 2px 2px 3px #666;;
 	margin: 2em 0;
 	&:hover {

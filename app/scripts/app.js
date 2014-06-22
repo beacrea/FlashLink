@@ -20,8 +20,7 @@
  -------------------------------------------------------------------------- */
 
 // Runs when the viewer has authenticated
-function onLinkedInAuth(par) {
-    console.log(par);
+function onLinkedInAuth() {
     $('.btn_login, .wrapper-auth').hide();
     initSplashAni();
     IN.API.Connections("me")
@@ -85,7 +84,10 @@ function checkValidName(name) {
 var cleanConnections = [];
 
 function setConnections(connections) {
-    var profileDiv = $("#connections");
+    // Testing
+    // var profileDiv = $("#connections");
+    var profilePhotoDiv = $(".col-lt");
+    var profileNameDiv = $(".col-cntr");
     var members = connections.values;
 
     for (var member in members) {
@@ -108,20 +110,25 @@ function setConnections(connections) {
 
     // Renders the first 15 users from the clean pool of connections
     for (var i=0; i < 15; i++) {
-        profileDiv.append(
+        // Test
+        /*profileDiv.append(
                 "<p class='member' card='" + i + "'>" +
                 "<img class='member_profilePic' src='" + cleanConnections[i].photo + "'>" +
                 "<span class='member_firstName'>" + cleanConnections[i].firstName + "</span> " +
                 "<span class='member_lastName'>" + cleanConnections[i].lastName+ "</span> " +
                 "</p>"
+        );*/
+        profilePhotoDiv.append(
+                "<p>this thing</p>"
         );
-
     }
-    animateConnections();
+    // animateConnections();
+    animateGameInit();
+    $('.view-game, .btn_match').fadeIn();
 }
 
 function animateConnections() {
-    $(document).ready(function() {
+    $(function(){
         endSplashAni();
         $('.view-test').css("background", "none");
         $('body, html').css("background", "#8FC6E1");
@@ -131,7 +138,24 @@ function animateConnections() {
             // execute this function sometime later:
             setTimeout(function() {
                 $item.animate({"opacity": 100}, 10000);
-                $item.css({"background": "rgba(240,240,240,0.9)"}, 10000);
+                $item.css("background", "rgba(240,240,240,0.9)");
+            }, 250*i);
+            // each element should animate half a second after the last one.
+        });
+    });
+}
+
+function animateGameInit() {
+    $(function(){
+        endSplashAni();
+        $('.view-auth').remove();
+        $("[card]").each(function (i) {
+            // store the item around for use in the 'timeout' function
+            var $item = $(this);
+            // execute this function sometime later:
+            setTimeout(function() {
+                $item.animate({"opacity": 100}, 10000);
+                $item.css("background", "rgba(240,240,240,0.9)");
             }, 250*i);
             // each element should animate half a second after the last one.
         });
@@ -211,7 +235,7 @@ function chooseCard() {
 }
 
 function compareMatch() {
-    $('.btn-match').click(function() {
+    $('.btn_match').click(function() {
         var col_lt = $('.col-lt .card-chosen');
         var col_cntr = $('.col-cntr .card-chosen');
         if (col_lt.attr('data-cardID') === col_cntr.attr('data-cardID')) {

@@ -133,7 +133,7 @@ body {
   right: 0;
   margin: auto;
 }
-.btn-nav { cursor: pointer; }
+.btn_nav { cursor: pointer; }
 
 
 
@@ -185,7 +185,7 @@ body {
  These are styles just for testing.
  ========================================================================== */
 
-.view-test {
+.view-test, .view-auth {
   padding-top: 2em;
   padding-bottom: 2em;
   width: 100%;
@@ -313,13 +313,15 @@ body {
 .wrapper-auth {
   @extend .absCenter;
   width: em(300);
-  height: em(230);
+  height: em(240);
   background: #fff;
   text-align: center;
   border: 1px solid #999;
   border-radius: 10px;
   padding: 1.5em 1em;
   header {
+	text-align: center;
+	img { max-width: 80px; }
 	display: inline-block;
 	i.fa {
 	  font-size: 2em;
@@ -361,6 +363,9 @@ body {
  ========================================================================== */
 
 
+.view-game, .btn_match {
+  display: none;
+}
 .view-game {
   height: 100%;
   background: $color-brand-blue-lt;
@@ -461,7 +466,7 @@ body {
 		}
 		.col_retry {
 		  .score_title { background: black; }
-		  .btn-nav:hover { background: $color-brand-blue-lt; }
+		  .btn_nav:hover { background: $color-brand-blue-lt; }
 		}
 	  }
 	}
@@ -499,7 +504,7 @@ body {
   }
 }
 
-.btn-match {
+.btn_match {
   width: 100%;
   position: fixed;
   bottom: 0;

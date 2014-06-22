@@ -25,20 +25,14 @@ function changeView() {
         // Specific Views
         if (target === 'gameplay') {
             appContainer.fadeOut(300, function(){
-                $(this).load('views/gameplay.html', function() {
-                    callback_gameplay();
-                }).fadeIn(300);
+                $(this).load('views/gameplay.html', callback_gameplay).fadeIn(300);
             });
         } else if (target === 'test') {
             appContainer.hide(function(){
-                $(this).load('views/test.html', function() {
-                    callback_test();
-                }).fadeIn(300);
+                $(this).load('views/test.html', callback_test).fadeIn(300);
             });
         } else {
-            appContainer.hide().load(view, function () {
-                changeView();
-            }).fadeIn(800);
+            appContainer.hide().load(view, changeView).fadeIn(800);
         }
     });
 }
@@ -50,9 +44,8 @@ function callback_gameplay() {
     changeView();
     chooseCard();
     compareMatch();
-    updateScore();
-    removeCard();
     checkWinStatus();
+    updateScore();
 }
 
 function callback_test() {

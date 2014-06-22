@@ -19,13 +19,9 @@
  Authentication
  -------------------------------------------------------------------------- */
 
-// Runs when the JavaScript framework is loaded
-function onLinkedInLoad() {
-    IN.Event.on(IN, "auth", onLinkedInAuth);
-}
-
 // Runs when the viewer has authenticated
-function onLinkedInAuth() {
+function onLinkedInAuth(par) {
+    console.log(par);
     $('.btn_login, .wrapper-auth').hide();
     initSplashAni();
     IN.API.Connections("me")
@@ -118,7 +114,7 @@ function setConnections(connections) {
                 "<span class='member_firstName'>" + cleanConnections[i].firstName + "</span> " +
                 "<span class='member_lastName'>" + cleanConnections[i].lastName+ "</span> " +
                 "</p>"
-                );
+        );
 
     }
     animateConnections();
@@ -169,9 +165,7 @@ function endSplashAni() {
 
 function initLogIn() {
     $('.btn_login').click(function() {
-        IN.User.authorize(function(){
-            onLinkedInAuth();
-        });
+        IN.User.authorize(onLinkedInAuth);
     });
 }
 

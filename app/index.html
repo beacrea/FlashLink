@@ -43,9 +43,22 @@
 
         <div class="appContainer"></div>
 
+        <!-- View Loading Animation -->
         <div class="loader">
 	        <img src="/images/loader.gif" alt="Loading Image" title="Loading"/>
         </div><!-- /.loader -->
+
+        <!-- Underscore Templates -->
+        <script id="card_profilePic" type="text/template">
+	        <div class="card card-default" data-cardID="0">
+		        <img src="<%= photo %>" alt="Card Placeholder" />
+	        </div><!-- /.card -->
+        </script>
+        <script id="card_profileName" type="text/template">
+	        <div class="card card-default" data-cardID="0">
+		        <span><%= firstName %>, <%= lastName %></span>
+	        </div><!-- /.card -->
+        </script>
 
 
         <!-- build:js scripts/vendor.js -->
@@ -82,11 +95,11 @@
         <script src="bower_components/sass-bootstrap/js/scrollspy.js"></script>
         <script src="bower_components/sass-bootstrap/js/collapse.js"></script>
         <script src="bower_components/sass-bootstrap/js/tab.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
         <!-- endbuild -->
 
         <script type="text/javascript" src="http://platform.linkedin.com/in.js">
 	        api_key: 75v3r7ozf5al1c
-	        onLoad: onLinkedInLoad
 	        authorize: false
         </script>
 </body>

@@ -414,7 +414,8 @@ body {
 	.wrapper-scoreBoard {
 	  margin: 1em 0 0.5em;
 	  padding: 1em;
-	  background: rgba(255, 255, 255, 0.9);
+	  background: #fff; // Fallback
+	  background: rgba(255, 255, 255, 0.8);
 	  border-radius: 10px;
 	  border: 4px solid orange;
 	  z-index: 9000;

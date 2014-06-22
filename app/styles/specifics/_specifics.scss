@@ -410,8 +410,8 @@ body {
 	background-size: 90%, 100%;
 	background-position: bottom left, top left;
 	box-shadow: -2px 0px 3px darken($color-brand-blue-lt, 50%);
-	.wrapper-instructions {
-	  margin: 1em 0;
+	.wrapper-scoreBoard {
+	  margin: 1em 0 0.5em;
 	  padding: 1em;
 	  background: rgba(255, 255, 255, 0.9);
 	  border-radius: 10px;
@@ -470,7 +470,8 @@ body {
 	transition: all 0.25s ease;
 	cursor: pointer;
 	letter-spacing: 0.1em;
-	background: darken(green, 6%)
+	background: darken(green, 6%);
+	color: #fff;
   }
 }
 

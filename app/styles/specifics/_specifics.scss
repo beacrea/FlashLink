@@ -419,6 +419,47 @@ body {
 	  z-index: 9000;
 	  img { max-width: 100%; }
 	  h1 { margin: 0 0 0.25em 0; }
+	  .wrapper-scores {
+		@extend .clearfix;
+		background: #eee;
+		position: relative;
+		border-radius: 4px;
+		border: 1px solid #999;
+		.col {
+		  text-align: center;
+		  width: 33.33%;
+		  padding: 0;
+		  overflow: auto;
+		  float: left;
+		  &:nth-child(2) {
+			border: 1px solid #666;
+			border-top: none;
+			border-bottom: none;
+		  }
+		  .score_title {
+			display: block;
+			color: #fff;
+			font-size: 0.75em;
+		  }
+		  .score {
+			display: block;
+			padding: 0.25em 0;
+		  }
+		  .fa { margin-right: 0.5em; }
+		}
+		// Make these color-blind friendly
+		.col_losses {
+		  .score_title { background: red; }
+		  .score b { color: red; }
+		}
+		.col_wins {
+		  .score_title { background: green; }
+		  .score b { color: green; }
+		}
+		.col_retry {
+		  .score_title { background: black; }
+		}
+	  }
 	}
   }
   .card {

@@ -52,6 +52,7 @@ function callback_gameplay() {
     compareMatch();
     updateScore();
     removeCard();
+    checkWinStatus();
 }
 
 function callback_test() {

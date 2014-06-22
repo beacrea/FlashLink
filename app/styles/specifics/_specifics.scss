@@ -133,6 +133,7 @@ body {
   right: 0;
   margin: auto;
 }
+.btn-nav { cursor: pointer; }
 
 
 
@@ -460,6 +461,7 @@ body {
 		}
 		.col_retry {
 		  .score_title { background: black; }
+		  .btn-nav:hover { background: $color-brand-blue-lt; }
 		}
 	  }
 	}

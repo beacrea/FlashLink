@@ -230,6 +230,7 @@ function compareMatch() {
             updateScore('incorrect');
             alert('Not A Match.');
         }
+        checkWinStatus();
     });
 }
 
@@ -250,4 +251,13 @@ function removeCard(el) {
     el.slideUp('slow', function(){
         el.remove();
     });
+}
+
+function checkWinStatus() {
+    if (score_correct > 14) {
+        alert('You win!');
+    }
+    if (score_incorrect > 4) {
+        alert('You lose!');
+    }
 }

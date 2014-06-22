@@ -11,7 +11,7 @@ var appContainer = $('.appContainer');
 
 // Changes View Based on Button Rel Attribute
 function changeView() {
-    $('.btn').click(function() {
+    $('.btn-nav').click(function() {
         var target = $(this).attr('rel');
         var view = 'views/' + target + '.html';
         // Specific Views
@@ -41,6 +41,7 @@ function callback_gameplay() {
     initLogIn();
     changeView();
     chooseCard();
+    compareMatch();
 }
 
 function callback_test() {
@@ -50,8 +51,8 @@ function callback_test() {
 
 // Initial View Load
 function initialView(fadeTime) {
-    appContainer.load('views/gameplay.html', function() {
-        callback_gameplay();
+    appContainer.load('views/start.html', function() {
+        changeView();
     }).fadeIn(fadeTime);
 }
 initialView(1000);

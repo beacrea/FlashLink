@@ -113,14 +113,11 @@ function setConnections(connections) {
     // Renders the first 15 users from the clean pool of connections
     for (var i=0; i < 15; i++) {
         profileDiv.append(
-                /*
-                THESE ARE FOR TESTING
                 "<p class='member' card='" + i + "'>" +
                 "<img class='member_profilePic' src='" + cleanConnections[i].photo + "'>" +
                 "<span class='member_firstName'>" + cleanConnections[i].firstName + "</span> " +
                 "<span class='member_lastName'>" + cleanConnections[i].lastName+ "</span> " +
                 "</p>"
-                 */
                 );
 
     }
@@ -215,5 +212,6 @@ function compareMatch() {
     $('.btn-match').click(function() {
         var col_lt = $('.col-lt .card-chosen');
         var col_rt = $('.col-cntr .card-chosen');
+        console.log('You compared them!');
     });
 }

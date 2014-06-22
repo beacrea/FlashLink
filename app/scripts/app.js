@@ -200,7 +200,12 @@ function initLogIn() {
 
 function chooseCard() {
     $('.card').click(function() {
-        $(this).siblings().css("opacity", "0.5").removeClass('card-chosen').addClass('card-default');
+        if ($(this).hasClass('card-chosen') ) {
+            $(this).siblings().css('opacity', '100');
+            $(this).css('opacity', '100');
+        } else {
+            $(this).siblings().css("opacity", "0.5").removeClass('card-chosen').addClass('card-default');
+        }
         $(this).toggleClass('card-chosen', 'card-default');
     });
 }

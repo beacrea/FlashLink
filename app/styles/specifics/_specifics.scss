@@ -108,9 +108,15 @@ $browser_context: 16;
  ========================================================================== */
 
 @import url(http://fonts.googleapis.com/css?family=Roboto);
-html, body { height: 100%; width: 100%; overflow: hidden; }
-body {
+html, body {
+  height: 100%;
+  width: 100%;
+  background: #eee;
+  overflow: hidden;
   min-width: 300px;
+  margin: 0 auto;
+}
+body {
   color: $color-primary-dark;
   font-family: $font_stack-main;
   font-weight: 300;
@@ -359,7 +365,7 @@ body {
   background: $color-brand-blue-lt;
   position: relative;
   .col {
-	padding: 0 2em;
+	padding: 0 2em 10em;
 	width: 33%;
 	overflow: scroll;
   }
@@ -371,11 +377,11 @@ body {
   .col-lt {
 	left:0;
 	background: $color-brand-blue-lt;
-	border-right: 4px solid darken($color-brand-blue-lt, 10%);
+	border-right: 4px solid darken($color-brand-blue-lt, 15%);
 	.card { border: 0.25em solid #fff; }
   }
   .col-cntr {
-	background: $color-brand-blue-lt;
+	background: darken($color-brand-blue-lt, 5%);
 	position:relative;
 	margin-left:33%;
 	height: 100%;
@@ -396,15 +402,23 @@ body {
   }
   .col-rt {
 	right:0;
-	background: url(../images/tileChecks.png) #fff;
-	border-left: 1em solid #eee;
+	background-image:
+		url('../images/roboGent.png'),
+		url('../images/tileChecks.png');
+	background-color: #fff;
+	background-repeat: no-repeat, repeat;
+	background-size: 90%, 100%;
+	background-position: bottom left, top left;
 	box-shadow: -2px 0px 3px darken($color-brand-blue-lt, 50%);
-	.roboGent {
-	  position: fixed;
-	  bottom: 0;
-	  right: 0;
-	  max-width: 33%;
-	  padding-right: 3%;
+	.wrapper-instructions {
+	  margin: 1em 0;
+	  padding: 1em;
+	  background: rgba(255, 255, 255, 0.9);
+	  border-radius: 10px;
+	  border: 4px solid orange;
+	  z-index: 9000;
+	  img { max-width: 100%; }
+	  h1 { margin: 0 0 0.25em 0; }
 	}
   }
   .card {
@@ -437,6 +451,26 @@ body {
 	.col-cntr {
 	  .card { font-size: 1em; }
 	}
+  }
+}
+
+.btn-match {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  min-height: 2em;
+  text-align: center;
+  text-shadow: 0 0 10px darken(green, 10%);
+  font-size: 2em;
+  line-height: 2em;
+  border-top: 10px solid darken(green, 10%);
+  background: green;
+  color: #fff;
+  &:hover {
+	transition: all 0.25s ease;
+	cursor: pointer;
+	letter-spacing: 0.1em;
+	background: darken(green, 6%)
   }
 }
 

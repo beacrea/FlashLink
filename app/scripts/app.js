@@ -195,6 +195,9 @@ function initLogIn() {
  Gameplay
  -------------------------------------------------------------------------- */
 
+var score_correct = 0;
+var score_incorrect = 0;
+
 function chooseCard() {
     $('.card').click(function() {
         if ($(this).hasClass('card-chosen') ) {
@@ -208,10 +211,27 @@ function chooseCard() {
 }
 
 function compareMatch() {
-    // TODO Finish The Comparison Engine
     $('.btn-match').click(function() {
         var col_lt = $('.col-lt .card-chosen');
-        var col_rt = $('.col-cntr .card-chosen');
-        console.log('You compared them!');
+        var col_cntr = $('.col-cntr .card-chosen');
+        if (col_lt.attr('id') === col_cntr.attr('id')) {
+            updateScore('correct');
+            alert('Match Found!');
+        } else {
+            updateScore('incorrect');
+            alert('Not A Match.');
+        }
     });
+}
+
+function updateScore(status) {
+    var score_correct_el = $('.col_wins .score_count');
+    var score_incorrect_el = $('.col_losses .score_count');
+    if (status === 'correct') {
+        score_correct++;
+        score_correct_el.html(score_correct);
+    } else if (status === 'incorrect') {
+        score_incorrect++;
+        score_incorrect_el.html(score_incorrect);
+    }
 }

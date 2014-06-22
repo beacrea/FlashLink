@@ -1,6 +1,6 @@
 <div class="view-game">
 	<div class="col col-lt">
-		<div class="card card-default">
+		<div class="card card-default" id="0">
 			<img src="images/cardPH.png" alt="Card Placeholder" />
 		</div><!-- /.card -->
 		<div class="card card-default">
@@ -50,7 +50,7 @@
 		</div><!-- /.card -->
 	</div><!-- /.col -->
 	<div class="col col-cntr">
-		<div class="card card-default">
+		<div class="card card-default" id="0">
 			<span>First Name, Last Name</span>
 		</div><!-- /.card -->
 		<div class="card card-default">
@@ -96,11 +96,15 @@
 			<div class="wrapper-scores">
 				<div class="col col_losses">
 					<span class="score_title">Incorrect Tries</span>
-					<span class="score">X / <b>5</b></span>
+					<span class="score">
+						<span class="score_count">0</span>
+						/ <b>5</b></span>
 				</div><!-- /.col -->
 				<div class="col col_wins">
 					<span class="score_title">Correct Matches</span>
-					<span class="score">X / <b>15</b></span>
+					<span class="score">
+						<span class="score_count">0</span>
+						/ <b>15</b></span>
 				</div><!-- /.col -->
 				<div class="col col_retry">
 					<span class="score_title">New Game?</span>

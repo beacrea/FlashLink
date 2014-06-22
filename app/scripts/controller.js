@@ -42,7 +42,6 @@ function changeView() {
 function callback_gameplay() {
     initLogIn();
     changeView();
-    chooseCard();
     compareMatch();
     checkWinStatus();
     updateScore();

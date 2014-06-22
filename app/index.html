@@ -50,13 +50,13 @@
 
         <!-- Underscore Templates -->
         <script id="card_profilePic" type="text/template">
-	        <div class="card card-default" data-cardID="0">
+	        <div class="card card-default" data-cardID="<%= id %>">
 		        <img src="<%= photo %>" alt="Card Placeholder" />
 	        </div><!-- /.card -->
         </script>
         <script id="card_profileName" type="text/template">
-	        <div class="card card-default" data-cardID="0">
-		        <span><%= firstName %>, <%= lastName %></span>
+	        <div class="card card-default" data-cardID="<%= id %>">
+		        <span><%= firstName %> <%= lastName %></span>
 	        </div><!-- /.card -->
         </script>
 

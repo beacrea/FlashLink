@@ -52,7 +52,7 @@ function randomizeRange(connections) {
 function getConnectionData(total) {
     var start = total - 50;
     IN.API.Connections("me")
-        .fields("firstName", "lastName", "pictureUrl", "industry")
+        .fields("firstName", "lastName", "pictureUrl", "industry", "id")
         .params({"start": start, "count": 50})
         // Sends connections for cleaning and rendering
         .result(setConnections);
@@ -84,45 +84,43 @@ function checkValidName(name) {
 var cleanConnections = [];
 
 function setConnections(connections) {
-    // Testing
-    // var profileDiv = $("#connections");
+    cleanConnections = _.chain(connections.values)
+                        .filter(validFirstAndLast)
+                        .first(15)
+                        .map(addPhotoAndFullName)
+                        .value();
+
+    function validFirstAndLast(member){
+        return member.pictureUrl && checkValidName(member.firstName) && checkValidName(member.lastName);
+    }
+
+    function addPhotoAndFullName(member){
+        member.photo = member.pictureUrl;
+        member.fullName = member.firstName + ' ' + member.lastName;
+        return member;
+    }
+
+    renderConnections();
+}
+
+Array.prototype.shuffle = function(){
+  return this.sort(function(){ return .5 - Math.random() });
+};
+
+function renderConnections() {
     var profilePhotoDiv = $(".col-lt");
     var profileNameDiv = $(".col-cntr");
-    var members = connections.values;
+    var photoHtml = $('#card_profilePic').html();
+    var photoTmp = _.template(photoHtml);
+    var photoCards = _.map(cleanConnections, photoTmp).shuffle().join('');
+    var nameHtml = $('#card_profileName').html();
+    var nameTmp = _.template(nameHtml);
+    var nameCards = _.map(cleanConnections, nameTmp).join('');
 
-    for (var member in members) {
-        var member_firstName = members[member].firstName;
-        var member_lastName = members[member].lastName;
-        var member_avatar = members[member].pictureUrl;
-        var member_industry = members[member].industry;
+    $(profilePhotoDiv).append(photoCards);
+    $(profileNameDiv).append(nameCards);
 
-        // Dumps users with illegal characters and puts them in an object
-        if (checkValidName(member_firstName) === true && checkValidName(member_lastName) && member_avatar !== undefined) {
-            cleanConnections.push({
-                photo: member_avatar,
-                firstName: member_firstName,
-                lastName: member_lastName,
-                fullName: member_firstName + ' ' + member_lastName,
-                industry: member_industry
-            });
-        }
-    }
 
-    // Renders the first 15 users from the clean pool of connections
-    for (var i=0; i < 15; i++) {
-        // Test
-        /*profileDiv.append(
-                "<p class='member' card='" + i + "'>" +
-                "<img class='member_profilePic' src='" + cleanConnections[i].photo + "'>" +
-                "<span class='member_firstName'>" + cleanConnections[i].firstName + "</span> " +
-                "<span class='member_lastName'>" + cleanConnections[i].lastName+ "</span> " +
-                "</p>"
-        );*/
-        profilePhotoDiv.append(
-                "<p>this thing</p>"
-        );
-    }
-    // animateConnections();
     animateGameInit();
     $('.view-game, .btn_match').fadeIn();
 }
@@ -216,23 +214,22 @@ function initLogIn() {
 var score_correct = 0;
 var score_incorrect = 0;
 
-function chooseCard() {
-    $('.card').click(function() {
-        if ($(this).hasClass('card-chosen') ) {
-            $(this)
-                .siblings()
-                .css('opacity', '100');
-            $(this).css('opacity', '100');
-        } else {
-            $(this)
-                .siblings()
-                .css("opacity", "0.5")
-                .removeClass('card-chosen')
-                .addClass('card-default');
-        }
-        $(this).toggleClass('card-chosen', 'card-default');
-    });
-}
+$(document).on('click', '.card', function() {
+    console.log('card clicked');
+    if ($(this).hasClass('card-chosen') ) {
+        $(this)
+            .siblings()
+            .css('opacity', '100');
+        $(this).css('opacity', '100');
+    } else {
+        $(this)
+            .siblings()
+            .css("opacity", "0.5")
+            .removeClass('card-chosen')
+            .addClass('card-default');
+    }
+    $(this).toggleClass('card-chosen', 'card-default');
+});
 
 function compareMatch() {
     $('.btn_match').click(function() {

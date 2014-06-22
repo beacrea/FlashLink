@@ -357,6 +357,7 @@ body {
 .view-game {
   height: 100%;
   background: $color-brand-blue-lt;
+  position: relative;
   .col {
 	padding: 0 2em;
 	width: 33%;
@@ -395,9 +396,16 @@ body {
   }
   .col-rt {
 	right:0;
-	background: #fff;
+	background: url(../images/tileChecks.png) #fff;
 	border-left: 1em solid #eee;
 	box-shadow: -2px 0px 3px darken($color-brand-blue-lt, 50%);
+	.roboGent {
+	  position: fixed;
+	  bottom: 0;
+	  right: 0;
+	  max-width: 33%;
+	  padding-right: 3%;
+	}
   }
   .card {
 	transition: all 0.5s ease;

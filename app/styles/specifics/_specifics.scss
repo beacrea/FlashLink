@@ -373,7 +373,6 @@ body {
   .col {
 	// TODO Style the scroll bars
 	padding: 0 2em 10em;
-	width: 33%;
 	overflow: scroll;
   }
   .col-lt, .col-rt {
@@ -382,6 +381,7 @@ body {
 	bottom:0;
   }
   .col-lt {
+	width: 20%;
 	left:0;
 	background: $color-brand-blue-lt;
 	border-right: 4px solid darken($color-brand-blue-lt, 15%);
@@ -390,7 +390,8 @@ body {
   .col-cntr {
 	background: darken($color-brand-blue-lt, 5%);
 	position:relative;
-	margin-left:33%;
+	width: 30%;
+	margin-left:20%;
 	height: 100%;
 	border-left: 2px solid lighten($color-brand-blue-lt, 10%);
 	.card {
@@ -410,12 +411,13 @@ body {
   }
   .col-rt {
 	right:0;
+	width: 50%;
 	background-image:
 		url('../images/roboGent.png'),
 		url('../images/tileChecks.png');
 	background-color: #fff;
 	background-repeat: no-repeat, repeat;
-	background-size: 90%, 100%;
+	background-size: 70%, 100%;
 	background-position: bottom left, top left;
 	box-shadow: -2px 0px 3px darken($color-brand-blue-lt, 50%);
 	.wrapper-scoreBoard {

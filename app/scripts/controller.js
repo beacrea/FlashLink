@@ -45,6 +45,8 @@ function callback_gameplay() {
     compareMatch();
     checkWinStatus();
     updateScore();
+    score_correct = 0;
+    score_incorrect = 0;
 }
 
 function callback_test() {

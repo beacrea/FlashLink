@@ -276,3 +276,16 @@ function checkWinStatus() {
         alert('You lose!');
     }
 }
+
+/* ==========================================================================
+ TESTING
+
+ These are functions for testing.
+ ========================================================================== */
+
+function showIDs() {
+    $('.card').each(function(){
+        var $card = $(this);
+        $card.html($card.data().cardid);
+    });
+}

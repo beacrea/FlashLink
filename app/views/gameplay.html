@@ -9,38 +9,85 @@
 	</div><!-- /.wrapper-auth -->
 </div><!-- /.container -->
 
-<div class="view-game">
-	<div class="col col-lt"></div><!-- /.col -->
-	<div class="col col-cntr"></div><!-- /.col -->
-	<div class="col col-rt">
-		<div class="wrapper-scoreBoard">
-			<div class="wrapper-instructions">
-				<h1>Instructions</h1>
-				<p><b>The game is simple:</b> match your connections' faces to their names. That's it!</p>
-				<p>If you match all 15 connections, you win! However, if you mismatch 5 connections, you lose the game.</p>
-				<p>Best of luck!</p>
-			</div><!-- /.instructions -->
-			<div class="wrapper-scores">
-				<div class="col col_losses">
-					<span class="score_title">Incorrect Tries</span>
+<div class="wrapper_game">
+	<div class="view-game">
+		<div class="col col-lt"></div><!-- /.col -->
+		<div class="col col-cntr"></div><!-- /.col -->
+		<div class="col col-rt">
+			<div class="wrapper-scoreBoard">
+				<div class="wrapper-instructions">
+					<h1>Instructions</h1>
+					<p><b>The game is simple:</b> match your connections' faces to their names. That's it!</p>
+					<p>If you match all 15 connections, you win! However, if you mismatch 5 connections, you lose the game.</p>
+					<p>Best of luck!</p>
+				</div><!-- /.instructions -->
+				<div class="wrapper-scores">
+					<div class="col col_losses">
+						<span class="score_title">Incorrect Tries</span>
 					<span class="score">
 						<span class="score_count">0</span>
 						/ <b>5</b></span>
-				</div><!-- /.col -->
-				<div class="col col_wins">
-					<span class="score_title">Correct Matches</span>
+					</div><!-- /.col -->
+					<div class="col col_wins">
+						<span class="score_title">Correct Matches</span>
 					<span class="score">
 						<span class="score_count">0</span>
 						/ <b>15</b></span>
-				</div><!-- /.col -->
-				<div class="col col_retry">
-					<span class="score_title">New Game?</span>
+					</div><!-- /.col -->
+					<div class="col col_retry">
+						<span class="score_title">New Game?</span>
 					<span class="score btn_nav" rel="gameplay">
 						<i class="fa fa-refresh"></i>Refresh
 					</span>
-				</div><!-- /.col -->
+					</div><!-- /.col -->
+				</div><!-- /.scoreBoard -->
 			</div><!-- /.scoreBoard -->
-		</div><!-- /.scoreBoard -->
-	</div><!-- /.col -->
-</div><!-- /.view-game -->
-<div class="btn btn_match">Compare Matches</div><!-- /.btn_match -->
+		</div><!-- /.col -->
+	</div><!-- /.view-game -->
+	<div class="btn btn_match">Compare Matches</div><!-- /.btn_match -->
+</div><!-- /.wrapper_game -->
+
+<!-- Gameplay Modals -->
+<div class="wrapper_modals">
+	<div class="wrapper_modal modal_match">
+		<h1>You've Found A Match!</h1>
+		<div class="message">
+			<span class="message_note">Great Job,</span>
+			<span class="message_score"><span>0</span> Matches To Win!</span>
+		</div><!-- /.message -->
+		<div class="btn_modal btn_continue">Continue</div>
+	</div><!-- /.wrapper_modal -->
+
+	<div class="wrapper_modal modal_win">
+		<h1>You've Found All The Matches!</h1>
+		<div class="wrapper_winImg">
+			<img src="https://s3-us-west-2.amazonaws.com/cbeas.img/flashlink/roboGent-win.png" alt="" />
+		</div><!-- /.wrapper_win -->
+		<div class="message">
+			<span class="message_note">You're Awesome!</span>
+			<span class="message_score">You Found All 15!</span>
+		</div><!-- /.message -->
+		<div class="btn_modal btn_nav" rel="gameplay">Play Again</div>
+	</div><!-- /.wrapper_modal -->
+
+	<div class="wrapper_modal modal_mismatch">
+		<h1>That's Not A Match</h1>
+		<div class="message">
+			<span class="message_note">Try Again.</span>
+			<span class="message_score"><span>0</span> Matches To Win!</span>
+		</div><!-- /.message -->
+		<div class="btn_modal btn_continue">Continue</div>
+	</div><!-- /.wrapper_modal -->
+
+	<div class="wrapper_modal modal_lose">
+		<h1>You've Lost</h1>
+		<div class="wrapper_loseImg">
+			<img src="https://s3-us-west-2.amazonaws.com/cbeas.img/flashlink/roboGent-lose.png" alt="" />
+		</div><!-- /.wrapper_win -->
+		<div class="message">
+			<span class="message_note">Chin Up,</span>
+			<span class="message_score">Why Not Try Again?</span>
+		</div><!-- /.message -->
+		<div class="btn_modal btn_nav" rel="gameplay">Play Again</div>
+	</div><!-- /.wrapper_modal -->
+</div><!-- /.wrapper_modals -->

@@ -363,6 +363,9 @@ body {
  ========================================================================== */
 
 
+.wrapper_game {
+  height: 100%;
+}
 .view-game, .btn_match {
   display: none;
 }
@@ -525,6 +528,111 @@ body {
 	letter-spacing: 0.1em;
 	background: darken(green, 6%);
 	color: #fff;
+  }
+}
+
+.wrapper_modal {
+  width: 20em;
+  height: 20.7em;
+  position: absolute;
+  background: #eee;
+  top: 0;
+  bottom: 12%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border: 1px solid #999;
+  h1 { margin: 0; }
+}
+
+.modal_match, .modal_win, .modal_mismatch, .modal_lose {
+  background-repeat: no-repeat;
+  display: none;
+  h1 {
+	color: #fff;
+	text-align: center;
+	padding: 0.25em;
+	font-size: 1em;
+  }
+}
+
+.modal_match, .modal_win {
+  h1 {
+	background: green;
+  }
+}
+
+.modal_mismatch, .modal_lose {
+  h1 {
+	background: red;
+  }
+}
+
+.modal_match {
+  background-image: url('https://s3-us-west-2.amazonaws.com/cbeas.img/flashlink/roboGent-match.png');
+  background-position: top right;
+}
+
+.modal_win {
+  background: white;
+  .wrapper_winImg {
+	position: relative;
+	img {
+	  max-width: 15em;
+	  position: absolute;
+	  top: -2em;
+	  right: -1em;
+	}
+  }
+  background-position: top right;
+}
+
+.modal_mismatch {
+  background-image: url('https://s3-us-west-2.amazonaws.com/cbeas.img/flashlink/roboGent-no_match.png');
+}
+
+.modal_lose {
+  background: #666;
+  .wrapper_loseImg {
+	position: relative;
+	img {
+	  max-width: 10.5em;
+	  position: absolute;
+	  top: -0.5em;
+	  right: 1em;
+	}
+  }
+  background-position: top right;
+}
+
+.message {
+  background: #333;
+  background: rgba(40,40,40,0.9);
+  border: 1px solid #fff;
+  width: 50%;
+  padding: 0.5em;
+  margin-top: 40%;
+  margin-left: -1em;
+  border-radius: 10px;
+  span {
+	display: block;
+	color: #fff;
+	line-height: 150%;
+  }
+  .message_score span { display: inline-block; }
+}
+
+.btn_modal {
+  margin-top: 1em;
+  padding: 0.5em;
+  text-align: center;
+  background: $color-brand-blue-dk;
+  color: #fff;
+  font-size: 2em;
+  cursor: pointer;
+  border-top: 2px solid darken($color-brand-blue-dk, 12%);
+  &:hover {
+	background: darken($color-brand-blue-dk, 10%);
   }
 }
 

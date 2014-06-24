@@ -237,13 +237,13 @@ function compareMatch() {
         var col_cntr = $('.col-cntr .card-chosen');
         if (col_lt.attr('data-cardID') === col_cntr.attr('data-cardID')) {
             updateScore('correct');
-            alert('Match Found!');
+            fireModal('match');
             removeCard(col_lt);
             removeCard(col_cntr);
             $('.card').css('opacity', 100);
         } else {
             updateScore('incorrect');
-            alert('Not A Match.');
+            fireModal('mismatch');
         }
         checkWinStatus();
     });
@@ -270,12 +270,59 @@ function removeCard(el) {
 
 function checkWinStatus() {
     if (score_correct > 14) {
-        alert('You win!');
+        fireModal('win');
     }
     if (score_incorrect > 4) {
-        alert('You lose!');
+        fireModal('lose');
     }
 }
+
+function triggerGameFade(fade) {
+    var gameplayView = $('.wrapper_game');
+    if (fade === 'out') {
+        gameplayView.css('opacity', '0.4');
+    } else {
+        gameplayView.css('opacity', '1');
+    }
+}
+
+function fireModal(state) {
+    var modalMatch = $('.modal_match');
+    var modalMismatch = $('.modal_mismatch');
+    var modalWin = $('.modal_win');
+    var modalLose = $('.modal_lose');
+
+    $('.wrapper_modal').hide();
+    triggerGameFade('out');
+    $('.message_score span').html(15 - score_correct);
+
+    if (state === 'match') {
+        modalMatch.fadeIn();
+    } else if (state === 'mismatch') {
+        modalMismatch.fadeIn();
+    } else if (state === 'win') {
+        modalWin.fadeIn();
+    } else if (state === 'lose') {
+        modalLose.fadeIn();
+    }
+}
+
+function closeModal() {
+    $('.wrapper_modal').fadeOut();
+    triggerGameFade();
+}
+
+$(document).on('click', '.btn_continue', closeModal);
+
+
+
+
+
+/* - - - - - - - - - - - - - - - - * // * - - - - - - - - - - - - - - - - -  */
+
+
+
+
 
 /* ==========================================================================
  TESTING

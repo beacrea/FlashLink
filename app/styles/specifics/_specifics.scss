@@ -569,7 +569,7 @@ body {
 }
 
 .modal_match {
-  background-image: url('https://s3-us-west-2.amazonaws.com/cbeas.img/flashlink/roboGent-match.png');
+  background-image: url('../images/roboGent-match.png');
   background-position: top right;
 }
 
@@ -588,7 +588,7 @@ body {
 }
 
 .modal_mismatch {
-  background-image: url('https://s3-us-west-2.amazonaws.com/cbeas.img/flashlink/roboGent-no_match.png');
+  background-image: url('../images/roboGent-no_match.png');
 }
 
 .modal_lose {

@@ -59,8 +59,8 @@ function callback_test() {
 
 // Initial View Load
 function initialView(fadeTime) {
-    appContainer.load('views/gameplay.html', function() {
-        callback_gameplay();
+    appContainer.load('views/start.html', function() {
+        changeView();
     }).fadeIn(fadeTime);
 }
 initialView(1000);
